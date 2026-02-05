@@ -8,7 +8,7 @@
 </head>
 <body>
   <header class="topbar">
-    <h1>⚽ Ultimate Futbol Menajer</h1>
+    <h1>⚽ Ultimate Futbol Career</h1>
     <div class="meta">
       <span id="seasonLabel">Sezon 1</span>
       <span id="weekLabel">Hafta 1</span>
@@ -19,42 +19,31 @@
   <main class="layout">
     <aside class="sidebar">
       <button class="tab active" data-tab="dashboard">Genel Bakış</button>
-      <button class="tab" data-tab="squad">Kadro & Diziliş</button>
-      <button class="tab" data-tab="market">Transfer Pazarı</button>
+      <button class="tab" data-tab="squad">Kadro & İstatistik</button>
+      <button class="tab" data-tab="market">Transfer Merkezi</button>
       <button class="tab" data-tab="training">Antrenman</button>
       <button class="tab" data-tab="match">Maç Merkezi</button>
-      <button class="tab" data-tab="table">Lig Tablosu</button>
+      <button class="tab" data-tab="table">Ligler</button>
+      <button class="tab" data-tab="career">Kariyer Modu</button>
     </aside>
 
     <section class="content">
       <section class="tab-panel active" id="dashboard">
         <h2>Kulüp Merkezi</h2>
         <div class="cards grid-3">
-          <article class="card">
-            <h3>Kulüp Morali</h3>
-            <p id="moraleText">Yüksek</p>
-          </article>
-          <article class="card">
-            <h3>Takım Gücü</h3>
-            <p id="powerText">78</p>
-          </article>
-          <article class="card">
-            <h3>Son Maç</h3>
-            <p id="lastMatchText">Henüz oynanmadı</p>
-          </article>
+          <article class="card"><h3>Kulüp Morali</h3><p id="moraleText">Yüksek</p></article>
+          <article class="card"><h3>Takım Gücü</h3><p id="powerText">78</p></article>
+          <article class="card"><h3>Son Maç</h3><p id="lastMatchText">Henüz oynanmadı</p></article>
         </div>
         <article class="card">
-          <h3>Hedefler</h3>
-          <ul>
-            <li>Lig'i ilk 4 içinde bitir.</li>
-            <li>En az 25 gol at.</li>
-            <li>Bütçeyi eksiye düşürme.</li>
-          </ul>
+          <h3>Yönetici Göstergeleri</h3>
+          <p id="managerSummary"></p>
+          <p id="seasonObjective"></p>
         </article>
       </section>
 
       <section class="tab-panel" id="squad">
-        <h2>Kadro & Diziliş</h2>
+        <h2>Kadro & Oyuncu İstatistikleri</h2>
         <div class="cards grid-2">
           <article class="card">
             <h3>Diziliş</h3>
@@ -66,12 +55,21 @@
             <ul id="startingXI" class="player-list"></ul>
           </article>
         </div>
+        <article class="card">
+          <h3>Oyuncu Gelişim Tablosu</h3>
+          <table>
+            <thead>
+              <tr><th>Oyuncu</th><th>Mevki</th><th>OVR</th><th>Pot.</th><th>Gol</th><th>Asist</th><th>Form</th></tr>
+            </thead>
+            <tbody id="playerStatsBody"></tbody>
+          </table>
+        </article>
       </section>
 
       <section class="tab-panel" id="market">
-        <h2>Transfer Pazarı</h2>
+        <h2>Transfer Merkezi</h2>
         <article class="card">
-          <p>Bütçeni dengeli kullan. Alınan oyuncular takıma hemen eklenir.</p>
+          <p id="windowStatus"></p>
           <ul id="marketList" class="player-list"></ul>
         </article>
       </section>
@@ -81,9 +79,9 @@
         <div class="cards grid-2">
           <article class="card">
             <h3>Haftalık Program</h3>
-            <label>Fizik <input id="physical" type="range" min="0" max="100" value="40"/></label>
-            <label>Taktik <input id="tactic" type="range" min="0" max="100" value="40"/></label>
-            <label>Şut <input id="finishing" type="range" min="0" max="100" value="40"/></label>
+            <label>Fizik <input id="physical" type="range" min="0" max="100" value="45"/></label>
+            <label>Taktik <input id="tactic" type="range" min="0" max="100" value="45"/></label>
+            <label>Şut <input id="finishing" type="range" min="0" max="100" value="45"/></label>
             <button id="applyTraining">Programı Uygula</button>
           </article>
           <article class="card">
@@ -112,17 +110,33 @@
       </section>
 
       <section class="tab-panel" id="table">
-        <h2>Lig Tablosu</h2>
+        <h2>Lig Merkezleri</h2>
         <article class="card">
+          <label>Lig Seçimi
+            <select id="leagueSelect"></select>
+          </label>
           <table>
             <thead>
-              <tr>
-                <th>#</th><th>Takım</th><th>O</th><th>G</th><th>B</th><th>M</th><th>A</th><th>Y</th><th>P</th>
-              </tr>
+              <tr><th>#</th><th>Takım</th><th>O</th><th>G</th><th>B</th><th>M</th><th>A</th><th>Y</th><th>P</th></tr>
             </thead>
             <tbody id="tableBody"></tbody>
           </table>
         </article>
+      </section>
+
+      <section class="tab-panel" id="career">
+        <h2>Kariyer Modu</h2>
+        <div class="cards grid-2">
+          <article class="card">
+            <h3>Teknik Direktör Profili</h3>
+            <p id="careerProfile"></p>
+            <p id="careerTrophies"></p>
+          </article>
+          <article class="card">
+            <h3>Kariyer Olayları</h3>
+            <ul id="careerEvents" class="events"></ul>
+          </article>
+        </div>
       </section>
     </section>
   </main>
