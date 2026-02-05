@@ -1,20 +1,29 @@
 # Ultimate Futbol Menajer
 
-Tarayıcıda çalışan kapsamlı bir futbol menajer simülasyonu.
+Tarayıcıda çalışan temel ama genişletilebilir futbol oyunu çatısı.
 
-## Özellikler
-- Çok sekmeli arayüz: genel bakış, kadro, transfer, antrenman, maç merkezi, lig tablosu
-- Diziliş seçimi ve ilk 11 görüntüleme
-- Transfer pazarı ve bütçe yönetimi
-- Antrenman programı ile takım gücü/moral etkisi
-- Taktik parametreleriyle maç simülasyonu ve olay akışı
-- Haftalara göre güncellenen puan tablosu
+## Neler var?
+- **Takım & Oyuncu modeli** (`Team`, `Player`)
+- **Maç motoru** (`MatchEngine`) ile taktik etkili skor üretimi
+- **Lig tablosu yönetimi** (`LeagueTable`) ve puan hesaplama
+- **Oyun orkestrasyonu** (`FootballGame`) ile hafta/sezon akışı
+- **UI Adaptörü**: domain katmanını HTML arayüzüne bağlayan ince katman
+
+## Mimari yaklaşım
+Kod iki katmanda düşünülmüştür:
+1. **Domain katmanı**: İş kuralları ve simülasyon (UI bağımsız)
+2. **UI katmanı**: DOM render ve event binding
+
+Bu yapı ile ileride:
+- farklı ligler,
+- oyuncu sözleşmeleri,
+- sakatlık/ceza sistemi,
+- yapay zekâ takım stratejileri
+kolayca eklenebilir.
 
 ## Çalıştırma
-Doğrudan `index.html` dosyasını açabilir veya bir statik sunucu ile çalıştırabilirsiniz:
-
 ```bash
 python3 -m http.server 8000
 ```
 
-Ardından `http://localhost:8000` adresine gidin.
+Sonra tarayıcıdan `http://localhost:8000` adresini açın.
