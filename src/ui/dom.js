@@ -1,0 +1,26 @@
+export function getUIRefs() {
+  return {
+    seasonLabel: document.getElementById('seasonLabel'),
+    weekLabel: document.getElementById('weekLabel'),
+    budgetLabel: document.getElementById('budgetLabel'),
+    moraleText: document.getElementById('moraleText'),
+    powerText: document.getElementById('powerText'),
+    lastMatchText: document.getElementById('lastMatchText'),
+    managerSummary: document.getElementById('managerSummary'),
+    seasonObjective: document.getElementById('seasonObjective'),
+    formationSelect: document.getElementById('formationSelect'),
+    pitch: document.getElementById('pitch'),
+    startingXI: document.getElementById('startingXI'),
+    playerStatsBody: document.getElementById('playerStatsBody'),
+    windowStatus: document.getElementById('windowStatus'),
+    marketList: document.getElementById('marketList'),
+    trainingEffect: document.getElementById('trainingEffect'),
+    score: document.getElementById('score'),
+    events: document.getElementById('events'),
+    leagueSelect: document.getElementById('leagueSelect'),
+    tableBody: document.getElementById('tableBody'),
+    careerProfile: document.getElementById('careerProfile'),
+    careerTrophies: document.getElementById('careerTrophies'),
+    careerEvents: document.getElementById('careerEvents'),
+  };
+}
